@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var jade = require('gulp-jade');
 var typescript = require('gulp-typescript');
 var annotate = require('gulp-ng-annotate');
+var connect = require('gulp-connect');
 
 var pathToBower = '/home/rafal/Git/ls/bower_components/' // Change to your absolute path
 
@@ -49,7 +50,23 @@ gulp.task('watch', function() {
   gulp.watch(['./app/components/**/*.ts', './app/states/**/*.ts', './app/app.ts'], ['typescript', 'annotate']);
 });
 
+gulp.task('serve', ['watch'], function() {
+  connect.server({
+    root: './build',
+    port: 8000,
+    liveroad: true,
+    middleware: function(connect, options) {
+      return [
+        connect.static('bower_components'),
+        connect().use(
+              '/bower_components',
+              connect.static('./bower_components')
+            )
+      ]
+    }
+  });
+});
 
-gulp.task('default',['inject-bower', 'sass', 'jade', 'typescript', 'annotate', 'watch'], function() {
+gulp.task('default',['inject-bower', 'sass', 'jade', 'typescript', 'annotate', 'serve'], function() {
 
 });
