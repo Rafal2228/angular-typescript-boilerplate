@@ -1,0 +1,12 @@
+html(ng-app='lsApp')
+  head
+    title Letter Studio
+    
+  body(ng-controller='HomeCtrl')
+    | {{ name }}
+  
+    //- inject:js
+    script(src="../bower_components/angular/angular.js")
+    script(src="../bower_components/angular-ui-router/release/angular-ui-router.js")
+    //- endinject
+    script(src='app.js')
