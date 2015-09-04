@@ -44,17 +44,17 @@ gulp.task('annotate', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./app/styles/**/*.scss', ['sass']);
-  gulp.watch(['./app/components/**/*.jade', './app/states/**/*.jade', './app/index.jade'], ['jade']);
+  gulp.watch('./app/styles/**/*.scss', ['sass', 'reload']);
+  gulp.watch(['./app/components/**/*.jade', './app/states/**/*.jade', './app/index.jade'], ['jade', 'reload']);
   gulp.watch('./bower_components', ['inject-bower']);
-  gulp.watch(['./app/components/**/*.ts', './app/states/**/*.ts', './app/app.ts'], ['typescript', 'annotate']);
+  gulp.watch(['./app/components/**/*.ts', './app/states/**/*.ts', './app/app.ts'], ['typescript', 'annotate', 'reload']);
 });
 
 gulp.task('serve', ['watch'], function() {
   connect.server({
     root: './build',
     port: 8000,
-    liveroad: true,
+    livereload: true,
     middleware: function(connect, options) {
       return [
         connect.static('bower_components'),
@@ -65,6 +65,11 @@ gulp.task('serve', ['watch'], function() {
       ]
     }
   });
+});
+
+gulp.task('reload', function() {
+  gulp.src('./build')
+    .pipe(connect.reload());
 });
 
 gulp.task('default',['inject-bower', 'sass', 'jade', 'typescript', 'annotate', 'serve'], function() {

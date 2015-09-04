@@ -7,6 +7,7 @@ module LetterStudio.Home {
       this.scope = $scope;
 
       this.scope.name = 'Rafal';
+      this.scope.surname = 'Majchrzak';
     }
   }
 }
