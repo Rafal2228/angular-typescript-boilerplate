@@ -47,7 +47,8 @@ gulp.task('watch', function() {
   gulp.watch('./app/styles/**/*.scss', ['sass', 'reload']);
   gulp.watch(['./app/components/**/*.jade', './app/states/**/*.jade', './app/index.jade'], ['jade', 'reload']);
   gulp.watch('./bower_components', ['inject-bower']);
-  gulp.watch(['./app/components/**/*.ts', './app/states/**/*.ts', './app/app.ts'], ['typescript', 'annotate', 'reload']);
+  gulp.watch(['./app/components/**/*.ts', './app/states/**/*.ts', './app/app.ts'], ['typescript', 'reload']);
+  gulp.watch('./build/app.js', ['annotate']);
 });
 
 gulp.task('serve', ['watch'], function() {
@@ -55,6 +56,7 @@ gulp.task('serve', ['watch'], function() {
     root: './build',
     port: 8000,
     livereload: true,
+    fallback: './build/index.html',
     middleware: function(connect, options) {
       return [
         connect.static('bower_components'),

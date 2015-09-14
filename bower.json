@@ -1,10 +1,10 @@
 {
-  "name": "letter-studio",
+  "name": "angular-typescript-boilerplate",
   "version": "0.0.1",
   "authors": [
     "Rafal2228 <rafal2228@gmail.com>"
   ],
-  "description": "Angular letter-studio project",
+  "description": "Angular Typescript Boilerplate",
   "license": "ISC",
   "ignore": [
     "**/.*",

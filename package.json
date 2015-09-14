@@ -1,7 +1,7 @@
 {
-  "name": "letter-studio",
+  "name": "angular-typescript-boilerplate",
   "version": "0.0.1",
-  "description": "Angular letter-studio project",
+  "description": "angular-typescript-boilerplate",
   "main": "./app",
   "dependencies": {
     "gulp": "^3.9.0",

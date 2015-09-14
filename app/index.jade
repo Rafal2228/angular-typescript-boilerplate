@@ -1,9 +1,11 @@
 html(ng-app='lsApp')
   head
+    base(href='/')
     title Letter Studio
     
-  body(ng-controller='HomeCtrl')
-    | {{ name }} {{ surname }}
+  body
+    ui-view(name='nav')
+    ui-view(name='content')
   
     //- inject:js
     script(src="../bower_components/angular/angular.js")
