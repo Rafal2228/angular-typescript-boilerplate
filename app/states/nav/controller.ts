@@ -1,9 +1,9 @@
-module LetterStudio.Nav {
+module Nav {
 
   export class Controller {
     scope: any;
 
-    constructor($scope: ng.IScope) {
+    constructor($scope: angular.IScope) {
       this.scope = $scope;
     }
   }

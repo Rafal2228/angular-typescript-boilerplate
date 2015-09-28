@@ -1,0 +1,10 @@
+.row
+  .col-xs-6
+    h2 Begin:
+  .col-xs-6
+    h2 End:
+.row.counter-list(ng-repeat='s in save track by $index')
+  .col-xs-6 
+    h4 {{ s.begin | date : 'hh:mm:ss' }}
+  .col-xs-6
+    h4 {{ s.end | date : 'hh:mm:ss' }}

@@ -17,11 +17,9 @@ gulp.task('inject-bower', function () {
 });
 
 gulp.task('sass', function () {
-  gulp.src('./app/styles/**/*.scss')
+  gulp.src('./app/styles/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./build/styles'))
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./build/styles'));
 });
 
 gulp.task('jade', function() {
