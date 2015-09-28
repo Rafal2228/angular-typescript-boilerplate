@@ -22,6 +22,8 @@
     ],
     "files": [
         "./app/app.ts",
+        "./app/components/filters/filter.ts",
+        "./app/components/filters/time.ts",
         "./app/states/home/config.ts",
         "./app/states/home/controller.ts",
         "./app/states/home/home.ts",

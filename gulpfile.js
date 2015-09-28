@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var inject = require('gulp-inject');
 var mainBowerFiles = require('main-bower-files');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 var jade = require('gulp-jade');
 var typescript = require('gulp-typescript');
 var annotate = require('gulp-ng-annotate');
@@ -18,6 +19,8 @@ gulp.task('inject-bower', function () {
 gulp.task('sass', function () {
   gulp.src('./app/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./build/styles'))
+    .pipe(concat('style.css'))
     .pipe(gulp.dest('./build/styles'));
 });
 

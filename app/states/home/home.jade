@@ -1,2 +1,7 @@
-
-p {{ name }} {{ surname }}
+.row
+  .btn.btn-primary.btn-success.btn-lg.left(ng-disabled='counter.counting' ng-click='counter.start()') Rozpocznij
+  .btn.btn-primary.btn-danger.btn-lg.right(ng-disabled='!counter.counting' ng-click='counter.stop()') Zatrzymaj
+.row
+  h2 Pomiar czasu:
+  
+  h3 {{ counter.date.displayed | timeFilter }}

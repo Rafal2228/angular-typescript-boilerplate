@@ -1,14 +1,21 @@
+doctype html
 html(ng-app='lsApp')
   head
     base(href='/')
     title Letter Studio
-    
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' type='text/css' href='../bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' type='text/css' href='styles/style.css')
   body
-    ui-view(name='nav')
-    ui-view(name='content')
+    .container
+      .row
+        ui-view.col-sm-3.col-lg-2(name='nav')
+        ui-view.col-sm-9.col-lg-10(name='content')
   
     //- inject:js
     script(src="../bower_components/angular/angular.js")
     script(src="../bower_components/angular-ui-router/release/angular-ui-router.js")
+    script(src="../bower_components/jquery/dist/jquery.js")
+    script(src="../bower_components/bootstrap/dist/js/bootstrap.js")
     //- endinject
     script(src='app.js')
